@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383467878522",
+    "project_id": "snipp-3cec7",
+    "storage_bucket": "snipp-3cec7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383467878522:android:41789737dd3d27c2aca3c3",
+        "android_client_info": {
+          "package_name": "com.example.snipp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383467878522-cfippgt4hr46k1drp7j7esrkp43dh4uc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSJ7dH57je0RY3UHDJQ087Hup6itHlBXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383467878522-cfippgt4hr46k1drp7j7esrkp43dh4uc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

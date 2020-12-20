@@ -12,6 +12,9 @@ class _VipSignUpScreenState extends State<VipSignUpScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
         backgroundColor: Colors.black,
       ),
       body: Text("VIP sign up"),

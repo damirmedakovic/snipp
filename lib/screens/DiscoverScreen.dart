@@ -21,7 +21,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     child: Container(
       margin: EdgeInsets.all(5.0),
       child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
           child: Stack(
             children: <Widget>[
               Image.network(item, fit: BoxFit.cover, width: 1000.0),

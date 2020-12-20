@@ -34,6 +34,9 @@ class _LoginScreenState extends State<LoginScreen> {
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.black,
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
         ),
         body: Container(
             padding: EdgeInsets.symmetric(vertical: 80, horizontal: 40),

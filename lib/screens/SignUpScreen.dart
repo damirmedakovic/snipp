@@ -27,6 +27,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.black,
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
         ),
         body: SingleChildScrollView(
           child: Container(

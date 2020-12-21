@@ -42,10 +42,8 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
             case 0:
               return DiscoverAppBar();
             case 1:
-              return ChatAppBar();
-            case 2:
               return NotificationsAppBar();
-            case 3:
+            case 2:
               return ProfileAppBar();
           }
         }()),
@@ -61,7 +59,7 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
                  icon: Icon(Icons.add, color: Colors.white,),
                ),
              ];
-           case 3:
+           case 2:
              return [
                IconButton(
                  onPressed: () {},
@@ -78,9 +76,8 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
         switch (_currentIndex) {
           case 0:
             return DiscoverScreen();
+
           case 1:
-            return ChatUserScreen();
-          case 2:
             return FeedScreen();
           case 3:
             return ProfileUserScreen();
@@ -94,17 +91,13 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
         currentIndex: _currentIndex,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble),
-            backgroundColor: Colors.white,
-            label: "",
-          ),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.play_circle_filled),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.account_circle),
             label: "",
           ),
         ],

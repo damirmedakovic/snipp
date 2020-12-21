@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   final Shader linearGradient = LinearGradient(
-    colors: <Color>[Color(0xffDA44bb), Color(0xff8921aa)],
+    colors: <Color>[Colors.pink, Color(0xff8921aa)],
   ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
   @override
@@ -38,131 +38,138 @@ class _LoginScreenState extends State<LoginScreen> {
             color: Colors.white, //change your color here
           ),
         ),
-        body: Container(
-            padding: EdgeInsets.symmetric(vertical: 80, horizontal: 40),
-            child: Form(
-                key: _formKey,
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "Snipp",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          foreground: Paint()..shader = linearGradient,
-                          fontSize: 30,
-                          fontFamily: 'Pacifico'),
-                    ),
-                    SizedBox(
-                      height: 80,
-                    ),
-                    TextFormField(
-                      validator: (val) {
-                        bool emailValid = RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                            .hasMatch(val);
-                        if (emailValid) {
-                          return null;
-                        } else {
-                          return "Emailen ser ikke ut til å være korrekt";
-                        }
-                      },
-                      onChanged: (val) {
-                        setState(() {
-                          email = val;
-                        });
-                      },
-                      cursorColor: Colors.white,
-                      style: TextStyle(color: Colors.white),
-                      decoration: new InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        labelText: "Email",
-                        labelStyle: TextStyle(color: Colors.white),
-                        fillColor: Colors.yellow,
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                          borderSide: new BorderSide(),
-                        ),
-                        //fillColor: Colors.green
+        body: GestureDetector(
+            onTap: () {
+              FocusScopeNode currentFocus = FocusScope.of(context);
+              if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+                currentFocus.focusedChild.unfocus();
+              }
+            },
+          child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(vertical: 80, horizontal: 40),
+              child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "Snipp",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            foreground: Paint()..shader = linearGradient,
+                            fontSize: 30,
+                            fontFamily: 'Pacifico'),
                       ),
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      validator: (val) => val.length < 6
-                          ? "Passordet må være minst 6 bokstaver langt"
-                          : null,
-                      onChanged: (val) {
-                        setState(() {
-                          password = val;
-                        });
-                      },
-                      obscureText: true,
-                      cursorColor: Colors.white,
-                      style: TextStyle(color: Colors.white),
-                      decoration: new InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        labelText: "Passord",
-                        labelStyle: TextStyle(color: Colors.white),
-                        fillColor: Colors.yellow,
-                        border: new OutlineInputBorder(
-                          borderRadius: new BorderRadius.circular(25.0),
-                          borderSide: new BorderSide(),
-                        ),
-                        //fillColor: Colors.green
+                      SizedBox(
+                        height: 80,
                       ),
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    SizedBox(height: 30),
-                    RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                              color: Color(0xffDA44bb),
-                              width: 1,
-                              style: BorderStyle.solid),
-                          borderRadius: BorderRadius.circular(50)),
-                      color: Colors.black,
-                      child: Text(
-                        "Logg inn",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () async {
-
-                        if (_formKey.currentState.validate()) {
-                          dynamic result =
-                          _auth.loginWithEmailAndPassword(email, password);
-
-                          if (result == null) {
-                            setState(() {
-                              error = "Feil brukernavn eller passord";
-                            });
+                      TextFormField(
+                        validator: (val) {
+                          bool emailValid = RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(val);
+                          if (emailValid) {
+                            return null;
                           } else {
-                            //_navigateBackToWrapper();
-                            print("dick");
+                            return "Emailen ser ikke ut til å være korrekt";
                           }
-                        } else {
+                        },
+                        onChanged: (val) {
                           setState(() {
-                            error = "Noen felter er ikke riktig fylt ut";
+                            email = val;
                           });
-                        }
+                        },
+                        cursorColor: Colors.white,
+                        style: TextStyle(color: Colors.white),
+                        decoration: new InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          labelText: "Email",
+                          labelStyle: TextStyle(color: Colors.white),
+                          fillColor: Colors.yellow,
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                            borderSide: new BorderSide(),
+                          ),
+                          //fillColor: Colors.green
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        validator: (val) => val.length < 6
+                            ? "Passordet må være minst 6 bokstaver langt"
+                            : null,
+                        onChanged: (val) {
+                          setState(() {
+                            password = val;
+                          });
+                        },
+                        obscureText: true,
+                        cursorColor: Colors.white,
+                        style: TextStyle(color: Colors.white),
+                        decoration: new InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          labelText: "Passord",
+                          labelStyle: TextStyle(color: Colors.white),
+                          fillColor: Colors.yellow,
+                          border: new OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(25.0),
+                            borderSide: new BorderSide(),
+                          ),
+                          //fillColor: Colors.green
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(height: 30),
+                      RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                                width: 1,
+                                style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(50)),
+                        color: Colors.pink,
+                        child: Text(
+                          "Logg inn",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: () async {
 
-                      },
-                    ),
-                    SizedBox(height: 14.0),
-                    Text(error,
-                        style: TextStyle(color: Colors.red, fontSize: 12.0))
-                  ],
-                ))));
+                          if (_formKey.currentState.validate()) {
+                            dynamic result =
+                            _auth.loginWithEmailAndPassword(email, password);
+
+                            if (result == null) {
+                              setState(() {
+                                error = "Feil brukernavn eller passord";
+                              });
+                            } else {
+                              //_navigateBackToWrapper();
+                              print("dick");
+                            }
+                          } else {
+                            setState(() {
+                              error = "Noen felter er ikke riktig fylt ut";
+                            });
+                          }
+
+                        },
+                      ),
+                      SizedBox(height: 14.0),
+                      Text(error,
+                          style: TextStyle(color: Colors.red, fontSize: 12.0))
+                    ],
+                  ))),
+        ));
   }
 }

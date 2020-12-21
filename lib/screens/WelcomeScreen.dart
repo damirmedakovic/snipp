@@ -21,8 +21,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 
   void _navigateToVipSignUp() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (BuildContext context) => VipSignUpScreen()));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => VipSignUpScreen()));
   }
 
   final Shader linearGradient = LinearGradient(
@@ -42,10 +42,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Shimmer.fromColors(
-              baseColor: Color(0xff7f00ff),
+              baseColor: Colors.pink,
               highlightColor: Color(0xffe100ff),
-              child: Text("Snipp", style: TextStyle(
-                  fontSize: 80, fontWeight: FontWeight.bold, fontFamily: 'Pacifico'),),)
+              child: Text(
+                "Snipp",
+                style: TextStyle(
+                    fontSize: 80,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Pacifico'),
+              ),
+            )
           ],
         ))),
         Expanded(
@@ -56,14 +62,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               RaisedButton(
                   shape: RoundedRectangleBorder(
                       side: BorderSide(
-                          color: Color(0xffDA44bb),
                           width: 1,
                           style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(50)),
                   onPressed: () {
                     _navigateToLogin();
                   },
-                  color: Colors.black,
+                  color: Colors.pink,
                   child: Padding(
                     padding: EdgeInsets.all(15.0),
                     child:
@@ -72,11 +77,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               RaisedButton(
                   shape: RoundedRectangleBorder(
                       side: BorderSide(
-                          color: Color(0xffDA44bb),
                           width: 1,
                           style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(50)),
-                  color: Colors.black,
+                  color: Colors.pink,
                   onPressed: () {
                     _navigateToSignUp();
                   },

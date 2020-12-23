@@ -23,6 +23,6 @@ class _ProfileUserScreenState extends State<ProfileUserScreen> {
         onPressed: () async {
       await _auth.signOut();
     },
-    child: Text("Logg ut"),);
+    child: Text("Logg ut", style: TextStyle(color: Colors.white),),);
   }
 }

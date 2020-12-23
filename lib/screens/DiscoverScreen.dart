@@ -24,7 +24,12 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
                       child: Stack(
                         children: <Widget>[
-                          Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                          Image.network(
+                            item,
+                            fit: BoxFit.cover,
+                            width: 1000.0,
+                            height: 1700,
+                          ),
                           Positioned(
                             bottom: 0.0,
                             left: 0.0,
@@ -47,10 +52,31 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 ),
               ),
             ),
-            Text(
-              "Helloo",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Container(
+                margin: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
+                child: Text(
+                  "Jeg er talent nr. ${imgList.indexOf(item)}",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Container(
+                margin: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
+                child: Text(
+                  "Platform. ${imgList.indexOf(item)*5}",
+                  style: TextStyle(
+                      color: Colors.grey[400],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12.0),
+                ),
+              ),
             ),
           ]))
       .toList();

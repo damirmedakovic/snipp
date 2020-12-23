@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:snipp/screens/LoginScreen.dart';
 import 'package:snipp/screens/SignUpScreen.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:snipp/screens/VipSignUpScreen.dart';
+import 'package:snipp/screens/VipCodeScreen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   void _navigateToVipSignUp() {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (BuildContext context) => VipSignUpScreen()));
+        builder: (BuildContext context) => VipCodeScreen()));
   }
 
   final Shader linearGradient = LinearGradient(

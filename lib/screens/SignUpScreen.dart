@@ -47,6 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
+
                           validator: (val) =>
                               val.isEmpty ? "Hva er navnet ditt?" : null,
                           onChanged: (val) {
@@ -158,8 +159,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
                               dynamic result =
-                                  await _auth.registerWithEmailAndPassword(
-                                      email, password);
+                                  await _auth.registerUserWithEmailAndPassword(
+                                      email, password, fullName);
+
 
                               if (result == null) {
                                 setState(() {

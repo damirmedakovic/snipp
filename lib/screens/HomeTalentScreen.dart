@@ -6,7 +6,6 @@ import 'dart:async';
 import 'package:snipp/services/auth.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/widgets.dart';
-import 'package:snipp/widgets/ChatAppBar.dart';
 import 'package:snipp/widgets/DiscoverAppBar.dart';
 import 'package:snipp/widgets/FeedAppBar.dart';
 import 'package:snipp/widgets/ProfileAppBar.dart';
@@ -18,14 +17,14 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80'
 ];
 
-class HomeUserScreen extends StatefulWidget {
+class HomeTalentScreen extends StatefulWidget {
   @override
-  _HomeUserScreenState createState() => _HomeUserScreenState();
+  _HomeTalentScreenState createState() => _HomeTalentScreenState();
 }
 
 
 
-class _HomeUserScreenState extends State<HomeUserScreen> {
+class _HomeTalentScreenState extends State<HomeTalentScreen> {
   final AuthService _auth = AuthService();
 
   int _currentIndex = 0;
@@ -34,40 +33,40 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: (() {
-          switch (_currentIndex) {
-            case 0:
-              return DiscoverAppBar();
-            case 1:
-              return NotificationsAppBar();
-            case 2:
-              return ProfileAppBar();
-          }
-        }()),
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: (() {
+            switch (_currentIndex) {
+              case 0:
+                return DiscoverAppBar();
+              case 1:
+                return NotificationsAppBar();
+              case 2:
+                return ProfileAppBar();
+            }
+          }()),
 
-       actions: (() {
+          actions: (() {
 
-         switch(_currentIndex) {
+            switch(_currentIndex) {
 
-           case 1:
-             return [
-               IconButton(
-                 onPressed: () {},
-                 icon: Icon(Icons.add, color: Colors.white,),
-               ),
-             ];
-           case 2:
-             return [
-               IconButton(
-                 onPressed: () {},
-                 icon: Icon(Icons.settings, color: Colors.white, size: 20.0,),
-               ),
-             ];
-         }
+              case 1:
+                return [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.add, color: Colors.white,),
+                  ),
+                ];
+              case 2:
+                return [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.settings, color: Colors.white, size: 20.0,),
+                  ),
+                ];
+            }
 
-       }())
+          }())
 
       ),
       backgroundColor: Colors.black,
@@ -90,9 +89,10 @@ class _HomeUserScreenState extends State<HomeUserScreen> {
         currentIndex: _currentIndex,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.all_inbox_outlined), label: ""),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.play_circle_filled),
+            icon: Icon(Icons.payment),
             label: "",
           ),
           BottomNavigationBarItem(
